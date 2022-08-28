@@ -1,0 +1,11 @@
+AuthUserFile /home/users/0/bitter.jp-hashimoto-naoki/web//new/works/lp/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Please Enter your ID & Password"
+AuthType Basic
+require valid-user
+
+<Files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
