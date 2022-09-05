@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN @ firebase</title>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyC3daeN_EJ2yfyz4nwHQCSZhNx9L8ZN2Hw",
+            authDomain: "login-test-eec93.firebaseapp.com",
+            projectId: "login-test-eec93",
+            storageBucket: "login-test-eec93.appspot.com",
+            messagingSenderId: "956500792668",
+            appId: "1:956500792668:web:2bd75e59b496493c69dd99",
+            measurementId: "G-M8VWGQ8H9K"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+    <script>
+        let uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function () {
+                    console.log("ログイン成功")
+                    return true;
+                },
+            },
+            signInOptions: [
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            ],
+        };
+
+        let ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <script>
+        //新規登録処理
+        register.addEventListener('click', function (e) {
+            var mailAddress = document.getElementById('mailAddress').value;
+            var password = document.getElementById('password').value;
+
+            firebase.auth().createUserWithEmailAndPassword(mailAddress, password)
+                .catch(function (error) {
+                    alert('登録できません（' + error.message + '）');
+                });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- <div id="firebaseui-auth-container"></div> -->
+    <div>
+        メールアドレス<input id="mailAddress" type="mailAddress" required />
+    </div>
+    <div>
+        パスワード<input id="password" type="password" required />
+    </div>
+    <button id="login">ログイン</button>
+    <button id="register">新規登録</button>
+</body>
+
+</html>

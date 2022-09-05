@@ -1,0 +1,131 @@
+@charset "UTF-8";
+/*reset*/
+html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, article, footer, header, menu, nav, section, video, picture { width: 100%; margin: 0; padding: 0; border: 0; outline: 0; vertical-align: baseline; background: transparent; box-sizing: border-box; display: block; }
+
+a { margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+
+img { display: block; vertical-align: bottom; font-size: 0; line-height: 0; width: 100%; height: auto; border: 0; }
+
+/*1227 追加*/
+.scroll-box_title ul {
+    height: 30px;
+    min-height: 30px;
+    width: 700px;
+    border: 1px solid #ccc;
+    padding: 4px 0px 15px;
+    font-size: 26px;
+    line-height: 1.7;
+    margin: 0 auto;
+    position: relative;
+    background-color: #999;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    z-index: 100;
+    font-weight: 600;
+    font-family: serif;
+}
+
+.tiele_nomber {
+    position: relative;
+    left: -20px;
+}
+
+.tiele_title {
+    position: relative;
+    left: -144px;
+}
+
+.tiele_date {
+    position: relative;
+    left: -34px;
+}
+
+#scroll-box {
+    height: 380px;
+    width: 700px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 35px;
+    font-size: 24px;
+    line-height: 1.7;
+    margin: 0 auto;
+    z-index: 99;
+    position: relative;
+    top: -40px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 600;
+    font-family: serif;
+}
+
+#scroll-box ul .nomber_flex {}
+
+#scroll-box ul .title_flex {
+    padding-left: 30px;
+}
+
+#scroll-box ul .date_flex {}
+
+#scroll-box ul li {
+    border-bottom: 1px dotted #ccc;
+}
+
+@media screen and (max-width: 800px) {
+    .scroll-box_title ul {
+        height: 6vw;
+        min-height: 6vw;
+        width: 90%;
+        border: 1px solid #ccc;
+        padding: 0.4vw 0px 1.5vw;
+        font-size: 0.8rem;
+        line-height: 1.7;
+        margin: 0 auto;
+        position: relative;
+        top: -4vw;
+        background-color: #999;
+        color: #fff;
+        display: flex;
+        justify-content: space-around;
+        z-index: 100;
+        font-weight: 600;
+        font-family: serif;
+    }
+
+    .tiele_nomber {
+        position: relative;
+        left: -3.5vw;
+    }
+
+    .tiele_title {
+        position: relative;
+        left: -18vw;
+    }
+
+    .tiele_date {
+        position: relative;
+        left: -3vw;
+    }
+
+    #scroll-box {
+        height: 50vw;
+        width: 90%;
+        overflow: hidden;
+        overflow-y: scroll;
+        border: 1px solid #ccc;
+        padding: 3vw;
+        font-size: 0.8rem;
+        line-height: 1.7;
+        margin: 0 auto;
+        z-index: 99;
+        position: relative;
+        top: -4vw;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-around;
+        font-weight: 600;
+        font-family: serif;
+    }
+}
