@@ -1,0 +1,115 @@
+.question,
+.question__form__label {
+    font-size: 10px;
+    /* 16px(default) * 62.5% = 10px */
+    font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, 'Noto Sans JP', sans-serif;
+}
+
+@media screen and (max-width:749px) {
+
+    .question,
+    .question__form__label {
+        font-size: 1.33vw;
+        /* 10px / 750px = 1.33% */
+    }
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width:749px) {
+    img {
+        width: 100%;
+    }
+}
+
+.question {
+    max-width: 750px;
+    min-width: 320px;
+    margin: auto;
+}
+
+.question__title {
+    font-size: 4.2em;
+    line-height: 1.5;
+    padding: 2.5% 5%;
+    background-color: #FFF5E6;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+/* 
+// question__form
+*/
+.question__form {
+    margin: 4em auto 6.0em;
+}
+
+.question__form__checkbox {
+    display: none;
+}
+
+.question__form__label {
+    align-items: center;
+    background: #fff;
+    border: 0.5em solid #ff9898;
+    border-radius: 1.0em;
+    display: flex;
+    line-height: 1.35;
+    margin: 1em auto;
+    padding: 2em 0em 2em 8em;
+    position: relative;
+    width: 90%;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.question__form__label--text {
+    font-size: 3.2em;
+}
+
+.question__form__label:last-child {
+    margin: 0 auto;
+}
+
+.question__form__label:before {
+    background: #fff;
+    border: 0.2em solid #ff9898;
+    border-radius: 0.4em;
+    content: '';
+    display: block;
+    height: 4.0em;
+    left: 2.4em;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 4.0em;
+}
+
+.question__form__checkbox:checked+.question__form__label {
+    background: #ff9898;
+    border: 0.5em solid #ff9898;
+    color: #fff;
+}
+
+.question__form__checkbox:checked+.question__form__label:before {
+    background: url("https://www.yazuya.com/assets/lp/did-720/images/check.png") #fff no-repeat center center/100% auto;
+    border: none;
+}
+
+.caution {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    color: #000;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.question__image {
+    position: relative;
+}
