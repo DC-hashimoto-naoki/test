@@ -1,0 +1,186 @@
+@media screen and (max-width:1100px) {
+    .qeta-main {
+        max-width: 750px;
+    }
+
+    .is-pc {
+        display: none !important;
+    }
+
+    .is-sp {
+        display: block !important;
+    }
+
+    /* concept */
+    .logo-wrapper>img {
+        width: 27.8rem;
+    }
+
+    .concept-text {
+        width: 54.4rem;
+    }
+
+    .scroll-area-01 {
+        width: 6rem;
+    }
+
+    .scroll-text {
+        height: 6rem;
+    }
+
+    /* cosmetic */
+    .cosmetic-container {
+        height: 171.5rem;
+    }
+
+    .cosmetic-image01 {
+        width: 51.4rem;
+    }
+
+    .cosmetic-image02 {
+        width: 47rem;
+        top: 52.3rem;
+    }
+
+    .cosmetic-image03 {
+        width: 30.3rem;
+        top: 94.5rem;
+    }
+
+    .cosmetic-image04 {
+        width: 63.8rem;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .cosmetic-text01 {
+        width: 6.6rem;
+        top: 3.5rem;
+        right: 8rem;
+    }
+
+    .cosmetic-text02 {
+        width: 6.7rem;
+        top: 56rem;
+        left: 16rem;
+    }
+
+    .cosmetic-text03 {
+        width: 6.9rem;
+        bottom: 56rem;
+        right: 12rem;
+    }
+
+    /* product */
+    .product {
+        background-image: url(../images/sp/webp/product-bg-origin.webp);
+        height: 300rem;
+    }
+
+    .product-title {
+        width: 20.3rem;
+    }
+
+    #qeta-main .product-title {
+        margin-bottom: 0;
+    }
+
+    .product-subtitle {
+        width: 37.8rem;
+    }
+
+    .product-contents {
+        width: 64rem;
+    }
+
+    .product-text-list {
+        margin-top: 10rem;
+    }
+
+    .product-text-list-item {
+        width: 30.3rem;
+        margin-bottom: 7rem;
+    }
+
+    .product-text-list-item > img {
+        width: 100%;
+    }
+
+    .product-text-list-item > .product-debut {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .product-image {
+        height: 48rem;
+    }
+
+    .product-text-content {
+        /* margin-top: 48rem; */
+    }
+
+    .product-annotation {
+        width: 37.4rem;
+        left: auto;
+        right: 2.5rem;
+    }
+
+    /* sns */
+    .sns-follow-us {
+        width: 14rem;
+        margin: 1rem auto 3rem;
+    }
+
+    .sns-logo {
+        width: 15rem;
+    }
+
+    .insta {
+        width: 8rem;
+    }
+
+    /* footer */
+    .footer {
+        letter-spacing: 0.05em;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        width: 65rem;
+        justify-content: space-between;
+    }
+
+    .footer-logo-image {
+        width: 15.7rem;
+    }
+
+    .footer-logo-text {
+        font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", 'Noto Sans JP', sans-serif;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        line-height: 1;
+    }
+
+    .footer-tel,
+    .footer-adress {
+        font-size: 2rem;
+    }
+
+    .footer-notion {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .qeta-main {
+        max-width: 100%;
+    }
+
+
+}
