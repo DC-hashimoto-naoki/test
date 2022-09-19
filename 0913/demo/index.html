@@ -74,10 +74,10 @@
             </div>
             <img class="is-pc border-01 border" src="./images/pc/webp/border-01.webp" alt="">
             <img class="is-pc border-02 border" src="./images/pc/webp/border-02.webp" alt="">
-        </section>      
-      </main>
-  
-      <div id="js-ParallaxContents">
+        </section>
+    </main>
+
+    <div id="js-ParallaxContents">
         <section class="product" id="product">
             <h2 class="product-title">
                 <img class="is-pc" src="./images/pc/webp/product-title.webp" alt="">
@@ -133,10 +133,10 @@
             </div>
             <img class="product-annotation is-pc" src="./images/pc/webp/product-annotation.webp" alt="">
             <img class="product-annotation is-sp" src="./images/sp/webp/product-annotation.webp" alt="">
-          </section>
-        </div>
-        
-      <div id="js-fixedFooter">
+        </section>
+    </div>
+
+    <div id="js-fixedFooter">
         <section class="sns">
             <div class="scroll-area scroll-area-02">
                 <div class="scroll-bar"></div>
@@ -146,8 +146,8 @@
             <img class="sns-follow-us is-sp" src="./images/sp/webp/follow-us.webp" alt="">
             <ul class="sns-list">
                 <li class="sns-list-item sns-logo">
-                        <img class="is-pc" src="./images/pc/webp/sns-logo.webp" alt="">
-                        <img class="is-sp" src="./images/sp/webp/sns-logo.webp" alt="">
+                    <img class="is-pc" src="./images/pc/webp/sns-logo.webp" alt="">
+                    <img class="is-sp" src="./images/sp/webp/sns-logo.webp" alt="">
                 </li>
                 <li class="sns-list-item insta">
                     <a href="//www.instagram.com/qeta_official/">
@@ -203,56 +203,57 @@
             </p>
         </section>
     </div>
-  
-  <style>
-    #qeta-main{
-      background: #fff;
-    }
-    
-    #js-fixedFooter{
-      padding: 4vh 0; /*footerの高さとProductの高さが干渉してjsがチラツキを発生させないように調整しています。*/ 
-    }
-    
-    .fixedFooter--fixed{
-      position: fixed;
-      top:0;
-      width:100%;
-      z-index: -1;
-    }
-  </style>
-  <script src="//cdn.jsdelivr.net/npm/gsap@3.7.0/dist/gsap.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/gsap@3.7.0/dist/ScrollTrigger.min.js"></script>
-  <script>
-    ScrollTrigger.create({
-    trigger: "#qeta-main",
-    start: "bottom 100%",
-    pin: "#qeta-main",
-    pinSpacing: false,
-    onEnter: () => fixedFooter(),
-    onEnterBack: () => freeFooter(),
-    });
-    
-    ScrollTrigger.create({
-    trigger: "#js-ParallaxContents",
-    start: "top 100%",
-    end: "bottom 0%",
-    pinSpacing: false,
-    onLeave: () => freeFooter(),
-    onEnterBack: () => fixedFooter(),
-    });
-    
-    function fixedFooter(){
-      let windowHeight =  window.outerHeight;
-      console.log(windowHeight);
-      document.getElementById('js-fixedFooter').classList.add('fixedFooter--fixed');
-      document.getElementById('js-ParallaxContents').style.marginBottom = windowHeight + 'px';
-    }
-    
-    function freeFooter(){
-      document.getElementById('js-fixedFooter').classList.remove('fixedFooter--fixed');
-      document.getElementById('js-ParallaxContents').style.marginBottom = '0';
-    }
-  </script>
-</body>
-</html>
 
+    <style>
+        #qeta-main {
+            background: #fff;
+        }
+
+        #js-fixedFooter {
+            padding: 4vh 0;
+            /*footerの高さとProductの高さが干渉してjsがチラツキを発生させないように調整しています。*/
+        }
+
+        .fixedFooter--fixed {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+        }
+    </style>
+    <script src="//cdn.jsdelivr.net/npm/gsap@3.7.0/dist/gsap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gsap@3.7.0/dist/ScrollTrigger.min.js"></script>
+    <script>
+        ScrollTrigger.create({
+            trigger: "#qeta-main",
+            start: "bottom 100%",
+            pin: "#qeta-main",
+            pinSpacing: false,
+            onEnter: () => fixedFooter(),
+            onEnterBack: () => freeFooter(),
+        });
+
+        ScrollTrigger.create({
+            trigger: "#js-ParallaxContents",
+            start: "top 100%",
+            end: "bottom 0%",
+            pinSpacing: false,
+            onLeave: () => freeFooter(),
+            onEnterBack: () => fixedFooter(),
+        });
+
+        function fixedFooter() {
+            let windowHeight = window.outerHeight;
+            console.log(windowHeight);
+            document.getElementById('js-fixedFooter').classList.add('fixedFooter--fixed');
+            document.getElementById('js-ParallaxContents').style.marginBottom = windowHeight + 'px';
+        }
+
+        function freeFooter() {
+            document.getElementById('js-fixedFooter').classList.remove('fixedFooter--fixed');
+            document.getElementById('js-ParallaxContents').style.marginBottom = '0';
+        }
+    </script>
+</body>
+
+</html>
