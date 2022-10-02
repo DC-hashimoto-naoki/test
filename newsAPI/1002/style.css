@@ -1,0 +1,41 @@
+
+.containter {
+    max-width: 750px;
+    margin: auto;
+}
+
+
+.containter ul {
+    list-style: none;
+}
+
+.containter img {
+    max-width: 100%;
+}
+
+.app__title {
+    text-align: center;
+}
+
+.news__list__item {
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.news__list__image {
+    width: 30%;
+    object-fit: contain;
+}
+
+.news__list__texts {
+    border-left: 1px solid #000;
+    padding-left: 10px;
+}
+
+.news__list__content {
+    font-size: 0.5em;
+    max-height: 3em;
+}
