@@ -15,5 +15,3 @@ function autoScroll() {
         setTimeout("autoScroll()", 20);
     }
 }
-
-// <!--自動スクロールスクリプト終了-->
