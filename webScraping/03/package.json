@@ -1,0 +1,20 @@
+{
+  "name": "1004",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chilkat/ck-node11-win64": "^9.50.90",
+    "@chilkat/ck-node18-win64": "^9.50.91",
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20"
+  }
+}
