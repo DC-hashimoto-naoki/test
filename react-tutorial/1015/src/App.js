@@ -1,12 +1,11 @@
 import './App.css';
-import {Box01, Box02, InputColor} from './components/index'
+import InputColor from './components/InputColor';
 
 function App() {
   return (
     <div className="App">
-      <Box01/>
-      <Box02/>
       <InputColor/>
+      aaa
     </div>
   );
 }
