@@ -1,3 +1,11 @@
+import styled from 'vue-styled-components';
+
+const StyledButton = styled('button', btnProps)`
+    font-size: 2rem;
+    margin: 3em;
+    color: blue;
+`
+
 Vue.component('button-counter', {
     data: function(){
         return{

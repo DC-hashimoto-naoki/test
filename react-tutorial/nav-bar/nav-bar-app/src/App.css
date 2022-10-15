@@ -54,6 +54,14 @@
   text-align: center;
 }
 
+.SidebarIcon img {
+  display: block;
+  width: 75%;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
 .SidebarIcon p {
   color: #fff;
   font-weight: 600;
