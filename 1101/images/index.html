@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST</title>
+    <style>
+        #dogImg {
+            width: 300px;
+        }
+        a {
+            display: block;
+        }
+
+        body {
+            width: fit-content;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <img id="dogImg" src="./img/shiba.png" alt="">
+    <a id="downloadItem" href="./img/shiba.png" download>柴犬をダウンロード</a>
+    <form>
+        <select name="dogs" id="dogs">
+            <option value="shiba">柴犬</option>
+            <option value="corgi">コーギー</option>
+            <option value="maltese">マルチーズ</option>
+            <option value="poodle">プードル</option>
+            <option value="retriever">ゴールデンレトリバー</option>
+        </select>
+    </form>
+
+    <script>
+        const dogs = document.getElementById('dogs');
+        const downloadItem = document.getElementById('downloadItem');
+        const dogImg = document.getElementById('dogImg');
+
+        dogs.addEventListener('change', ()=>{
+            const num = dogs.selectedIndex;
+            const dogName = dogs.options[num].value;
+            const dogNameJP = dogs.options[num].innerText;
+            const link = `./img/${dogName}.png`;
+
+            downloadItem.innerText = dogNameJP + 'をダウンロード';
+            downloadItem.setAttribute('href', link);
+            dogImg.setAttribute('src', link);
+        })
+    </script>
+</body>
+</html>
