@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('DOMContentLoaded', init);
+        window.addEventListener('resize', init);
+        function init() {
+            const articleBody = document.querySelector('.article-body');
+
+            const body = document.getElementsByTagName('body')[0];
+            let bodyWidth = window.getComputedStyle(body).getPropertyValue('width');
+            console.log('width', bodyWidth);
+
+            let isSp = window.innerWidth < 620;
+            let isChangedFont = false;
+            console.log('is SP? ', isSp);
+
+            let divs = document.querySelectorAll('.article-body > div');
+            let strongs = document.querySelectorAll('.article-body > div > strong');
+
+            if(isSp && !isChangedFont){
+                changeFontSize(divs);
+                changeFontSize(strongs);
+                isChangedFont = true;
+            }
+
+        }
+
+        // TODO: when size changed;
+        /**
+         * changeFontSize
+         * @param {HTMLCollection} els, 
+        */
+        function changeFontSize(els) {
+            let elements = Array.prototype.slice.call(els);
+
+            elements.forEach(div => {
+                let fontSizePx = window.getComputedStyle(div).getPropertyValue('font-size');
+                let fontSize = removePx(fontSizePx);
+                let fontOnSp = (fontSize / 620) * 100;
+                div.style.fontSize = `${fontOnSp}vw`;
+            })
+        }
+
+        /**
+         * @param {String}px
+        */
+        function removePx(px) {
+            let isContainPx = px.match(/px$/);
+            console.log(isContainPx);
+            if (!isContainPx) {
+                console.log(px + ' not contain px');
+                return;
+            }
+            let pxNum = parseInt(px.replace('px', ''));
+            return pxNum;
+        }
+
+    </script>
+
+    <style>
+        body .article-body h2 {
+            margin: auto;
+        }
+
+        .article-body {
+            padding: 0% 2.5% !important;
+            overflow-x: hidden;
+        }
+
+        body .article-body img {
+            display: auto !important;
+        }
+
+        body .article-body .sb-custom img {
+            display: auto !important;
+        }
+    </style>
+</body>
+
+</html>
