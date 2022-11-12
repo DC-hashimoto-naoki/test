@@ -23,7 +23,9 @@
             const articleBody = document.querySelector('.article-body');
             const body = document.getElementsByTagName('body')[0];
             let bodyWidth = window.getComputedStyle(body).getPropertyValue('width');
+            let articleBodyPadding = window.getComputedStyle(articleBody).getPropertyValue('padding-left');
             console.log('width', bodyWidth);
+            console.log('padding-left', articleBodyPadding);
 
             // TODO: set breakPoint flexible
             const breakPoint = 620;
@@ -42,7 +44,10 @@
                 changeFontSize(strongs, breakPoint);
                 changeFontSize(links, breakPoint);
                 isChangedFont = true;
+                articleBody.classList.add('sp');
             }
+            changeBodyPadding(articleBodyPadding, breakPoint);
+
         }
 
         // TODO: when size changed;
@@ -60,6 +65,16 @@
                 let fontOnSp = (fontSize / breakPoint) * 100;
                 div.style.fontSize = `min(${fontSizePx}, ${fontOnSp}vw)`;
             })
+        }
+
+        /**
+         * @param padding, {number}breakPoint
+         * @return void
+        */
+        function changeBodyPadding(padding ,breakPoint){
+            const articleBody = document.querySelector('.article-body');
+            articleBody.style.paddingLeft = `10px`;
+            articleBody.style.paddingRight = `10px`;
         }
 
         /**
@@ -83,8 +98,8 @@
             margin: auto;
         }
 
-        .article-body {
-            padding: 0% 2.5% !important;
+        .article-body.sp {
+            padding: 0% min( calc( 20/620 * 100vw) ,20px) !important;
             overflow-x: hidden;
         }
 
