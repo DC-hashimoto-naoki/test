@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dropbox</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        function DropboxDownload() {
+            axios({
+                method: 'post',
+                url: 'https://content.dropboxapi.com/2/files/download',
+                headers: {
+                    'Authorization': 'Bearer sl.BS_ouZtdVet-YIAG3WltEJXFZQsJ0COWJ2JQLd8EE7PFumYJj7uAH0tfuUJ1KjdidrciRh-91GD7_byQygw9ya8g2b48kA4QS14pBzZebyYjcpBLaSO2DU8iLgqyIeuAiS0rpY8:JPN',
+                    'Content-Type': 'application/octet-stream',
+                    'Dropbox-API-Arg': JSON.stringify({
+                        "path": "/%E5%88%B6%E4%BD%9C%E3%83%81%E3%83%BC%E3%83%A0/%E3%83%94%E3%83%BC%E3%83%AB/AdobeStock_73469450-1.jpeg"
+                    })
+                }
+            })
+                .then(response => {
+                    //接続に成功した場合の処理
+                    console.log(response);
+                })
+                .catch(error => {
+                    //接続に失敗した場合の処理
+                    console.log(error);
+                })
+                .then(() => {
+                    // 成功or失敗にかかわらず最後に実行するコード
+                    console.log("finish");
+                })
+        };
+
+        DropboxDownload();
+    </script>
+</body>
+
+</html>

@@ -56,34 +56,39 @@ function App() {
 
   }
 
-  const handleDelete = (id: number) =>{
+  const handleDelete = (id: number) => {
     const newTodos = todos.filter(todo => todo.id !== id);
     setTodos(newTodos);
   }
 
   return (
     <div className="App">
-      <div>
-        <h2>TO DO LIST with Typescript</h2>
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <input type="text" onChange={(e) => handleChange(e)} className="inputText" value={inputValue}/>
-          <input type="submit" value="create" className='submitButton' />
-        </form>
-        <ul className='todoList'>
-          {todos.map(todo => (
-            <li key={todo.id}>
-              <input type="text"
-                onChange={(e) => handleEdit(todo.id, e.target.value)}
-                className="inputText"
-                value={todo.inputValue}
-                disabled={todo.checked}
-              />
-              <input type="checkbox"
-                onChange={(e) => handleChecked(todo.id, todo.checked)} />
-                <button onClick={() => handleDelete(todo.id)}>delete</button>
-            </li>
-          ))}
-        </ul>
+      <div className='card' style={{ borderRadius: "15px" }}>
+        <div className='card-body p-5'>
+          <h2 className='mb-3'>TO DO LIST with Typescript</h2>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <input type="text" onChange={(e) => handleChange(e)} className="inputText" value={inputValue} />
+            <input type="submit" value="create" className='submitButton btn btn-primary btn-lg ms-2' />
+          </form>
+          <ul className='todoList'>
+            {todos.map(todo => (
+              <li key={todo.id}>
+                <input type="checkbox" className='me-2'
+                  onChange={(e) => handleChecked(todo.id, todo.checked)} />
+                <input type="text"
+                  onChange={(e) => handleEdit(todo.id, e.target.value)}
+                  className="inputText"
+                  value={todo.inputValue}
+                  disabled={todo.checked}
+                />
+                <button onClick={() => handleDelete(todo.id)}>
+                  <i className="fas fa-times text-primary"></i>
+                </button>
+
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

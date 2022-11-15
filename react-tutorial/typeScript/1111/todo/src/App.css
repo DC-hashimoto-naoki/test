@@ -7,13 +7,19 @@
   height: 100vh;
 }
 
+.App form {
+  margin: 10px 0;
+}
+
 .inputText {
   padding: 10px;
+  margin-right: 10px;
 }
 
 .submitButton {
   padding: 8px 15px;
   cursor: pointer;
+  margin-bottom: 8px;
 }
 
 .todoList li {
@@ -25,4 +31,8 @@
 
 .todoList li input {
   padding: 7px;
+}
+
+.todoList li input[type="checkbox"]{
+  margin: 0 5px;
 }
