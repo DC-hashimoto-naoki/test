@@ -1,0 +1,16 @@
+body .article-body h2 {
+    margin: auto;
+}
+
+.article-body.sp {
+    padding: 0% min(calc(20/620 * 100vw), 20px) !important;
+    overflow-x: hidden;
+}
+
+body .article-body img {
+    display: auto !important;
+}
+
+body .article-body .sb-custom img {
+    display: auto !important;
+}
