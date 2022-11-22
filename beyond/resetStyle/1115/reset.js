@@ -46,7 +46,12 @@ function changeFontSize(els, breakPoint) {
         let fontSizePx = window.getComputedStyle(div).getPropertyValue('font-size');
         let fontSize = removePx(fontSizePx);
         let fontOnSp = (fontSize / breakPoint) * 100;
+
+        let parent = div.parentElement;
+        if(parent.classList.contains('fontSizeChanged')){ return;}
+        
         div.style.fontSize = `min(${fontSizePx}, ${fontOnSp}vw)`;
+        div.classList.add('fontSizeChanged');
     })
 }
 
