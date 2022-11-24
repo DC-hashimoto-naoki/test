@@ -1,0 +1,17 @@
+.wrapper {
+    max-width: min(750px, 100%);
+    margin: auto;
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 50px auto;
+}
+
+video {
+    max-width: 100%;
+}
