@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login App</title>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+</head>
+
+<body>
+    <p>
+        mailAddress
+        <input type="email" name="email" id="email">
+    </p>
+    <p>
+        Password
+        <input type="password" name="password" id="password">
+    </p>
+    <button id="loginBtn">login</button>
+    <button id="logoutBtn">logout</button>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCxanHHuBETbFrEGdhYyM_ZHjGd6MiqOIc",
+            authDomain: "fire-loginapp-7db61.firebaseapp.com",
+            projectId: "fire-loginapp-7db61",
+            storageBucket: "fire-loginapp-7db61.appspot.com",
+            messagingSenderId: "495556706562",
+            appId: "1:495556706562:web:e0fed9eff783e7eac3821b"
+        };
+
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+
+        console.log(app.name);
+        const auth = getAuth(app);
+        console.log(auth);
+
+        loginBtn.addEventListener('click', async() => {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            console.log(email, password);
+            const user = await login(email, password)
+        });
+
+        async function login(email, password) {
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    alert('maybe success');
+                    return user;
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert('failed...')
+                    console.error(errorMessage);
+                });
+        }
+    </script>
+</body>
+
+</html>
