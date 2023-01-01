@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import { Content } from './components';
+import { Content, Header } from './components';
 
 
 function App() {
   return (
     <div className="App">
-      <Content title="タイトル" text="テキスト" age={26} />
+      <Header title="home page" page="App.tsx" />
+      <Content title="タイトル" text="テキスト" age={30} />
     </div>
   );
 }
