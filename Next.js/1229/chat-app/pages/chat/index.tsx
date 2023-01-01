@@ -49,17 +49,17 @@ const ChatPage: NextPage = () => {
 
     return (
         <>
-            <h1>チャット</h1>
+            <h1 className="font-bold">チャット</h1>
             {chatLogs.map((chat, index) => {
                 return (
-                    <div>
+                    <div className="divide-solid">
                         <Message key={`chatMessage_${index}`} message={chat.message} createAt={chat.createAt} />
                     </div>
                 )
             })}
-            <form onSubmit={handleSendMessage}>
+            <form className="m-5" onSubmit={handleSendMessage}>
                 <input value={message} onChange={(e => setMessage(e.target.value))} />
-                <button type="submit">submit</button>
+                <button type="submit" className="ring rounded-md mx-3">submit</button>
             </form>
         </>
     )

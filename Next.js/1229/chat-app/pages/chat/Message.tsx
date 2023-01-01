@@ -7,9 +7,9 @@ type MessageProps = {
 
 const Message:FC<MessageProps> = ({message, createAt}: MessageProps) => {
     return (
-        <div>
-            <p>{message}</p>
-            <p>{createAt}</p>
+        <div className="flex justify-between border-b border-b-violet-500 ">
+            <p className="mx-3">{message}</p>
+            <p className="mx-3 text-sm">{createAt}</p>
         </div>
     )
 }
