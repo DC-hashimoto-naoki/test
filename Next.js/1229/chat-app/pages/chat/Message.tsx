@@ -2,7 +2,8 @@ import { FC } from "react";
 
 type MessageProps = {
     message: string,
-    createAt: string
+    createAt: string,
+    key: string
 }
 
 const Message:FC<MessageProps> = ({message, createAt}: MessageProps) => {

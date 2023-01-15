@@ -52,7 +52,7 @@ const ChatPage: NextPage = () => {
             <h1 className="font-bold">チャット</h1>
             {chatLogs.map((chat, index) => {
                 return (
-                    <div className="divide-solid">
+                    <div className="divide-solid" key={index}>
                         <Message key={`chatMessage_${index}`} message={chat.message} createAt={chat.createAt} />
                     </div>
                 )
