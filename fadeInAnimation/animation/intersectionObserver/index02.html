@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection Observer API</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            width: fit-content;
+            margin: auto;
+        }
+
+        .wrapper {
+            max-width: 750px;
+            margin: auto;
+            background-color: #eee;
+        }
+
+        .spacer {
+            width: 100%;
+            height: 150vh;
+            background-color: #ddd;
+        }
+
+        .element {
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .fadeUp {
+            transform: translateY(30px);
+        }
+
+        .element.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .fade-right2left {
+            transform: translateX(-30px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="spacer"></div>
+        <img class="element fade-right2left" data-delay="0.3" data-threshold="0" src="../images/neko01.jpg" alt="">
+        <div class="spacer"></div>
+        <img class="element" src="../images/neko02.jpg" alt="">
+        <div class="spacer"></div>
+        <img class="element" src="../images/neko03.jpg" alt="">
+        <div class="spacer"></div>
+    </div>
+
+ <script>
+    const elements = document.querySelectorAll('.element');
+
+
+    console.log(elements)
+
+    const options = {
+        root: null,
+        rootMargin: "-50% 0%",
+        threshold: 0
+    }
+
+    const options02 = {
+        root: null,
+        rootMargin: "0% 0%",
+        threshold: 0.2
+    }
+
+    const observer = new IntersectionObserver(animation, options);
+    const observer02 = new IntersectionObserver(animation, options02);
+
+    elements.forEach(el => {
+        observer.observe(el);
+    })
+
+    function animation(entries){
+        entries.forEach(entry => {
+            // console.log(entry.target);
+            if(entry.isIntersecting) {
+                let delay = entry.target.dataset.delay;
+                console.log(name)
+                entry.target.classList.add('active');
+            }
+        })
+    }
+
+
+ </script>
+
+</body>
+
+</html>

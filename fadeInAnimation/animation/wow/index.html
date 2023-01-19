@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wow.js</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            width: fit-content;
+            margin: auto;
+        }
+
+        .wrapper {
+            max-width: 750px;
+            margin: auto;
+            background-color: #eee;
+        }
+
+        .spacer {
+            width: 100%;
+            height: 150vh;
+            background-color: #ddd;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+    <script src="wow.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="spacer"></div>
+        <img class="wow bounceInUp" src="../images/neko01.jpg" alt="">
+        <div class="spacer"></div>
+        <img class="wow swing" src="../images/neko02.jpg" alt="">
+        <div class="spacer"></div>
+        <img class="wow jello" src="../images/neko03.jpg" alt="">
+        <div class="spacer"></div>
+    </div>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>

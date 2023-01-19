@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOS</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            width: fit-content;
+            margin: auto;
+        }
+
+        .wrapper {
+            max-width: 750px;
+            margin: auto;
+            background-color: #eee;
+        }
+
+        .spacer {
+            width: 100%;
+            height: 150vh;
+            background-color: #ddd;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="spacer"></div>
+        <img data-aos="fade-up" src="../images/neko01.jpg" alt="">
+        <div class="spacer"></div>
+        <img data-aos="fade-down" src="../images/neko02.jpg" alt="">
+        <div class="spacer"></div>
+        <img data-aos="fade-right" src="../images/neko03.jpg" alt="">
+        <div class="spacer"></div>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
