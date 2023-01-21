@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//cdn.jsdelivr.net/npm/gsap@3.7.0/dist/gsap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gsap@3.7.0/dist/ScrollTrigger.min.js"></script>
+    <style>
+        .spacer {
+            width: 100%;
+            height: 25vh;
+        }
+
+        .wrapper {
+            background-color: #aaa;
+            width: 80%;
+            margin: auto;
+        }
+
+        .content {
+            background-color: violet;
+            width: 200px;
+            height: 200px;
+
+            color: #fff;
+            font-size: bold;
+            font-size: 20px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="wrapper">
+        <div class="content">CONTENT</div>
+    </div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <script>
+        const tl = gsap.timeline({repeat: -1, repeatDelay: 0.5});
+
+        tl
+        .to(".content", {x: 100, duration: 1})
+        .to(".content", {y: 100, duration: 2}, "-=0.4")
+        .call( ()=> {
+            tl.timeScale(0.2)
+        }, null, 3.5)
+        .to(".content", {rotation: 180, duration: 1.5}, "-=0.4")
+        .to(".content", {x: 0, y: 0, duration: 1.5}, "-=0.4")
+    </script>
+</body>
+
+</html>
