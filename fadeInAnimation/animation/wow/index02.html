@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="inView.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+    <script src="wow.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -33,37 +35,22 @@
             height: 150vh;
             background-color: #ddd;
         }
-
-        .element {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.7s;
-        }
-
-        .element.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="spacer"></div>
-        <img class="element" src="../images/neko01.jpg" alt="">
+        <img class="wow flipInX" src="../images/neko01.jpg" alt="">
         <div class="spacer"></div>
-        <img class="element" src="../images/neko02.jpg" alt="">
+        <img class="wow fadeIn" src="../images/neko02.jpg" alt="">
         <div class="spacer"></div>
-        <img class="element" src="../images/neko03.jpg" alt="">
+        <img class="wow fadeIn" src="../images/neko03.jpg" alt="">
         <div class="spacer"></div>
     </div>
 
     <script>
-        $(function(){
-            $('.element').on('inview', function(){
-                $(this).addClass('active')
-            })
-        })
+        new WOW().init();
     </script>
 </body>
 

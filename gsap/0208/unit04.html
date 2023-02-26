@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>復習</title>
+    <style>
+        img {
+            width: 300px;
+        }
+
+        .spacer {
+            height: 200vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spacer"></div>
+
+    <img class="target" src="./images/cat04.jpg" alt="">
+
+    <div class="spacer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script>
+        // プラグインを登録
+        gsap.registerPlugin(ScrollTrigger);
+
+        // gsap.to(".target", {
+        //     x: 200,
+        //     // スクロールトリガーの設定
+        //     scrollTrigger : {
+        //         trigger: ".target",
+        //         markers: true,
+        //         scrub: true,
+        //         start: "top 50%",
+        //         end: "50% 25%"
+        //     }
+        // })
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".target",
+                markers: true,
+                scrub: true,
+                start: "top 50%",
+                end: "bottom 50%",
+            }
+        });
+
+        tl
+            .to(".target", { x: 200, duration: 0.5 })
+            .to(".target", { y: 300, duration: 0.5 }, "-=0.4")
+            .to(".target", { rotate: 360, duration: 0.5 }, "<");
+
+
+        // const tl = gsap.timeline();
+
+        // tl
+        //     .to(".target", { x: 200, duration: 0.5 })
+        //     .to(".target", { y: 300, duration: 0.5 }, "-=0.4")
+        //     .to(".target", { rotate: 360, duration: 0.5 }, "<");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wiki</title>
+</head>
+<body>
+    
+    <script>
+        let inputValue = "日本";
+        fetch(`https://ja.wikipedia.org/w/api.php?format=json&action=query&origin=*&list=search&srlimit=45&srsearch=${inputValue}`)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    </script>
+</body>
+</html>

@@ -8,7 +8,7 @@
     <title></title>
 
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="inView.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -60,8 +60,17 @@
 
     <script>
         $(function(){
-            $('.element').on('inview', function(){
-                $(this).addClass('active')
+            $(window).on('scroll', function(){
+                const windowsHeight = $(window).height();
+                const scroll = $(window).scrollTop();
+                
+                $('.element').each(function(){
+                    const targetPosition = $(this).offset().top;
+                    const marginBottom = 500;
+                    if(scroll > targetPosition - windowsHeight + marginBottom){
+                        $(this).addClass('active');
+                    }
+                })
             })
         })
     </script>

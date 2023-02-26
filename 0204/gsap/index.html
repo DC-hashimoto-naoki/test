@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="item item01"><span>1</span></div>
+    <div class="item item02"><span>2</span></div>
+    <div class="item item03"><span>3</span></div>
+
+    <div class="area js-area">
+        <div class="wrap">
+            <!-- ↓　アニメーションさせる要素 -->
+            <div class="waku js-waku01"></div>
+            <div class="waku js-waku02"></div>
+            <div class="item item04 js-item js-item04"><span>4 <br>奥行スクロール</span></div>
+            <div class="item item05 js-item js-item05"><span>5 <br>奥行スクロール</span></div>
+            <div class="item item06 js-item js-item06"><span>6 <br>奥行スクロール</span></div>
+            <!-- ↑　アニメーションさせる要素 -->
+        </div>
+    </div>
+
+    <div class="item item01"><span>7</span></div>
+    <div class="item item02"><span>8</span></div>
+    <div class="item item03"><span>9</span></div>
+
+    <div class="hr-area js-hr-area">
+        <div class="hr-wrap js-hr-wrap">
+            <div class="item hr-item item10"><span>10 <br>横スクロール</span></div>
+            <div class="item hr-item item11"><span>11 <br>横スクロール</span></div>
+            <div class="item hr-item item12"><span>12 <br>横スクロール</span></div>
+        </div>
+    </div>
+
+    <div class="item item03"><span>13</span></div>
+
+    <!-- SVG path -->
+    <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 257.56 328.98">
+        <path class="cls-1" id="path"
+            d="m.06.5c192.58,21.62,256.83,41.99,257,60,.33,34.65-236.75,55.68-236,95,.7,36.73,208.07,45.37,211,88,2.27,33.06-166.36,43.36-189,85-13.86,25.49,66.3,88.83,168.17,88.83" />
+    </svg>
+    <img class="motion-target" src="./images/kuroneko-02.gif" alt="">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/MotionPathPlugin.min.js"></script>
+    <script>
+        window.addEventListener("load", init);
+        function init() {
+            //プラグインを定義
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.registerPlugin(MotionPathPlugin);
+
+            const area = document.querySelector('.js-area');
+            const items = document.querySelectorAll('.js-item');
+            const num = items.length;
+
+            items.forEach((item, index) => {
+                gsap.set(item, {
+                    zIndex: num - index
+                });
+            });
+
+            // set methods
+            gsap.set(".js-waku01", {
+                scale: 0.8
+            })
+            gsap.set(".js-waku02", {
+                opacity: 0,
+                scale: 0.2
+            });
+            gsap.set(".js-item04", {
+                scale: 0,
+                width: "75%",
+                height: "50%",
+                left: "12.5%",
+                top: "25%"
+            });
+            gsap.set(".js-item05", {
+                scale: 0,
+                width: "75%",
+                height: "50%",
+                left: "12.5%",
+                top: "25%"
+            });
+            gsap.set(".js-item06", {
+                scale: 0,
+                width: "100%",
+                height: "100%",
+                left: 0,
+                top: 0
+            });
+
+            // timeline
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: area,
+                    start: "top top",
+                    end: "+=4000",
+                    scrub: 2,
+                    pin: true,
+                    markers: true
+                }
+            });
+
+            tl
+                .to(".js-waku01", { scale: 1.2, duration: 0.5 })
+                .to(".js-waku02", { scale: 1.2, opacity: 1, duration: 1 }, "<")
+                .to(".js-item04", { scale: 1, left: "-37.5%", top: "5%", duration: 1 }, "-=0.5")
+                .to(".js-item04", { opacity: 0, duration: 0.2 }, "-=0.2")
+                .to(".js-item05", { scale: 1, left: "62.5%", top: "55%", duration: 1 }, "-=0.5")
+                .to(".js-item05", { opacity: 0, duration: 0.2 }, "-=0.2")
+                .to(".js-item06", { scale: 1.2, duration: 1 }, "-=0.5");
+
+
+            const hrArea = document.querySelector('.hr-area');
+            const hrWrap = document.querySelector('.hr-wrap');
+            const hrItems = document.querySelectorAll('.hr-item');
+            const hrNum = hrItems.length;
+
+            gsap.set(hrWrap, { width: hrNum * 100 + "%" });
+            gsap.set(hrItems, { width: 100 / hrNum + "%" });
+
+            gsap.to(hrItems, {
+                xPercent: -100 * (hrNum - 1),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: hrArea,
+                    start: "top top",
+                    end: "+=4000",
+                    pin: true,
+                    scrub: 0.5
+                }
+            })
+
+            // 
+            const motionTimeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#path",
+                    start: 0,
+                    end: "500%",
+                    scrub: true,
+                }
+            })
+
+            motionTimeline.to(".motion-target", {
+                motionPath: {
+                    path: "#path",
+                    align: "#path",
+                    alignOrigin: [0.5, 0.5],
+                    // autoRotate: true
+                },
+            })
+        }
+    </script>
+</body>
+
+</html>

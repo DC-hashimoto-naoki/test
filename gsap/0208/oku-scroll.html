@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奥行スクロール</title>
+</head>
+
+<body>
+    <div class="item item01"><span>1</span></div>
+    <div class="item item02"><span>2</span></div>
+    <div class="item item03"><span>3</span></div>
+
+    <div class="area js-area">
+        <div class="wrap">
+            <!-- ↓　アニメーションさせる要素 -->
+            <div class="waku js-waku01"></div>
+            <div class="waku js-waku02"></div>
+            <div class="item item04 js-item js-item04"><span>4</span></div>
+            <div class="item item05 js-item js-item05"><span>5</span></div>
+            <div class="item item06 js-item js-item06"><span>6</span></div>
+            <!-- ↑　アニメーションさせる要素 -->
+        </div>
+    </div>
+
+    <div class="item item01"><span>7</span></div>
+    <div class="item item02"><span>8</span></div>
+    <div class="item item03"><span>9</span></div>
+
+    <style>
+        .area {
+            overflow: hidden;
+        }
+
+        .wrap {
+            position: relative;
+            height: 100vh;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .item01 {
+            background: #e94d15;
+        }
+
+        .item02 {
+            background: #f18d1d;
+        }
+
+        .item03 {
+            background: #f8b633;
+        }
+
+        .item04 {
+            background: #8cc561;
+        }
+
+        .item05 {
+            background: #56aa59;
+        }
+
+        .item06 {
+            background: #3d6b35;
+        }
+
+        .item01,
+        .item02,
+        .item03 {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .item04,
+        .item05,
+        .item06 {
+            position: absolute;
+        }
+
+        .waku {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            border: 10px solid #333;
+            box-shadow: inset 0 0 5px 5px #aaa;
+        }
+    </style>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const area = document.querySelector(".js-area");
+        const items = document.querySelectorAll(".js-item");
+        const num = items.length;
+        //位置とscaleを指定
+        items.forEach((item, i) => {
+            gsap.set(item, {
+                zIndex: num - i,
+            });
+        });
+
+        gsap.set(".js-waku01", {
+            scale: 0.9
+        });
+
+        gsap.set(".js-waku02", {
+            scale: 0.1
+        })
+
+        gsap.set(".js-item04", {
+            scale: 0, width: "75%", height: "50%", left: "12.5%", top: "25%",
+        });
+        gsap.set(".js-item05", {
+            scale: 0, width: "75%", height: "50%", left: "12.5%", top: "25%",
+        });
+        gsap.set(".js-item06", {
+            scale: 0, width: "100%", height: "100%", left: 0, top: 0,
+        });
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".js-area",
+                start: "top top",
+                end: "+=4000",
+                scrub: 1,
+                // scrub: true,
+                pin: true,
+            }
+        });
+
+        tl
+            .to(".js-waku01", { scale: 1.2, duration: 0.5 })
+            .to(".js-waku02", { scale: 1.2, duration: 1 }, "-=0.5")
+            .to(".js-item04", { scale: 1, duration: 1, left: "-37.5%", top: "5%" })
+            .to(".js-item04", { opacity: 0, duration: 0.2 }, "-=0.2")
+            .to(".js-item05", { scale: 1, duration: 1, left: "62.5%", top: "100%" })
+            .to(".js-item05", { opacity: 0, duration: 0.2 }, "-=0.2")
+            .to(".js-item06", { scale: 1, duration: 1 })
+
+    </script>
+</body>
+
+</html>

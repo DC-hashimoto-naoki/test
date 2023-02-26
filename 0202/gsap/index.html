@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>split text</title>
+    <style>
+        .wrapper {
+            width: fit-content;
+            margin: auto;
+            overflow: hidden;
+            background-color: #eee;
+        }
+
+        .wrapper p {
+            font-size: 24px;
+        }
+
+        #target .char {
+            transform: translateY(150%);
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <p id="target">please split me!</p>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 879.54 342.69">
+        <defs>
+            <style>
+                .cls-1 {
+                    fill: none;
+                }
+            </style>
+        </defs>
+        <path class="cls-1" id="path"
+            d="m.49,2.9c28.15,124.51,68.12,245.37,121.43,247.62C200.31,253.82,243.96-2.05,326.68.52c95.01,2.96,132.14,343.48,209.52,341.67,73.04-1.71,91.69-306.24,171.43-313.1,60.36-5.19,124.79,162.88,171.43,313.1" />
+    </svg>
+
+    <div id="box"></div>
+
+    <!-- Minified UMD bundle -->
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/MotionPathPlugin.min.js"></script>
+    
+    <script>
+        const text = new SplitType('#target');
+        const tl = gsap.timeline();
+        const char = document.querySelectorAll('.char')
+
+
+        gsap.to('.char', {
+            y: 0,
+            stagger: 0.05,
+            delay: 0.2,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+
+        gsap.to('#box', {
+            motionPath: {
+                path: '#path',
+                align: '#path',
+                alignOrigin: [0.5, 0.5],
+                autoRotate: true
+            },
+            duration: 5
+        })
+    </script>
+</body>
+
+</html>
